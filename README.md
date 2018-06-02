@@ -1,6 +1,6 @@
 # Text-Translator
 
-![preview](https://user-images.githubusercontent.com/23690145/36625170-6bda931e-1955-11e8-9042-04e8c8bfd842.png)
+![preview](https://user-images.githubusercontent.com/23690145/40869362-6c77d626-664c-11e8-92bf-9ecd98a28a51.png)
 
 ---
 
