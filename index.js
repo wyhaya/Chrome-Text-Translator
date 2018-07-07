@@ -9,26 +9,6 @@
 
     let timer = null
 
-    let translator = document.createElement('div')
-    translator.id = 'translator_alert'
-    document.body.appendChild(translator)
-
-
-    translator.addEventListener('mouseover', () => {
-        window.clearTimeout(timer)
-    })
-
-    translator.addEventListener('mouseout', setRemove)
-
-
-    function setRemove() {
-        timer = setTimeout(() => {
-            translator.style.display = ''
-        }, 3000)
-    }
-
-
-    // 监听键盘事件
     document.onkeyup = e => {
 
         (e.key === 'q' || e.key === 'Q') && (() => {
@@ -39,13 +19,27 @@
                 return
             }
 
-            translator.style.display = 'block'
+            const old = document.getElementsByTagName('translator')
+            !!old.length && old[0].parentNode.removeChild(old[0])
+
+            const translator = document.createElement('translator')
+            document.body.appendChild(translator)
+
             translator.innerHTML = 'loading...'
 
             window.clearTimeout(timer)
-            setRemove()
 
-            // 查询
+            const timeoutRemove = (function init(){
+                timer = setTimeout(() => 
+                    translator.parentNode.removeChild(translator)
+                , 3000)
+                return init
+            })()
+
+            translator.addEventListener('mouseover', () => window.clearTimeout(timer))
+        
+            translator.addEventListener('mouseout', timeoutRemove)
+
             queryText(text).then(data => {
 
                 if (data.trans_result) {
@@ -62,7 +56,6 @@
 
     }
 
-    // 翻译
     function queryText(query) {
 
         let salt = Date.now().toString()

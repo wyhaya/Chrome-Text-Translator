@@ -1,6 +1,6 @@
 
 
-#translator_alert{
+translator {
     position: fixed;
     width: auto;
     height: auto;
@@ -16,11 +16,10 @@
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     font-size: 14px;
     line-height: 22px;
-    display: none;
-    animation: translator_alert_fain .2s ease;
+    animation: translator_show .2s ease;
 }
 
-@keyframes translator_alert_fain{
+@keyframes translator_show{
     from{
         transform: scale(.8,.8)
     }
