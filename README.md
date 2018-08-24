@@ -11,7 +11,7 @@
 
 ### Use
 
-* After selecting the text, press the keyboard `q` key for translation
+* After selecting the text, press the keyboard <kbd>Q</kbd> key for translation
 * Placing the mouse on the pop-up frame can be viewed for a long time
 
 ### Install
